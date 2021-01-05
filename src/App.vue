@@ -78,11 +78,10 @@ export default {
      });
     });
 
-    var calc_history = JSON.parse(localStorage.getItem('calc_history'));
-    this.result = calc_history.result;
-    this.prizes = calc_history.prizes;
-    this.bgimg = calc_history.bgimg;
-    console.log(`bgimg =  ${this.bgimg}`);
+    //var calc_history = JSON.parse(localStorage.getItem('calc_history'));
+    //if(calc_history != null) {
+    this.loadCalcHistory();
+    //}
 
     if(this.bgimg.length == 0) {
       this.changeImg();
@@ -127,6 +126,17 @@ export default {
         bgimg: this.bgimg,
       };
       localStorage.setItem('calc_history', JSON.stringify(calc_history));
+    },
+
+    loadCalcHistory: function() {
+      var calc_history = JSON.parse(localStorage.getItem('calc_history'));
+      if(calc_history != null) {
+        console.log(`calc ${calc_history}`);
+        this.result = calc_history.result;
+        this.prizes = calc_history.prizes;
+        this.bgimg = calc_history.bgimg;
+        console.log(`bgimg =  ${this.bgimg}`);
+      }
     },
 
     appAction: function(result) {
