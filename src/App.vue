@@ -12,7 +12,9 @@
     <h2> {{ number }}</h2>
     <div v-html="listOfPrizes">   
     </div>
+    <!--
     <div><button v-on:click="clearCalcHistory">Clear History</button></div>
+    -->
     <hr>
     <div><table v-html="log"></table></div>
 
