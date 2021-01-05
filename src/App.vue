@@ -79,7 +79,7 @@ export default {
 
     changeImg: function() {
       var index = Math.floor(Math.random() * Math.floor(118));
-      while( this.prizes.indexOf(this.characters[index.path]) != -1) {
+      while( this.prizes.indexOf(this.characters[index].path) != -1) {
         index = Math.floor(Math.random() * Math.floor(118));
       }
       this.bgimg = this.characters[index].path;
