@@ -31,13 +31,11 @@ export default {
         window.addEventListener('keypress', this.keyPressed);
     },
     created: function(){
-        console.log(this.formula);  
         this.loadQuestion();
 
     },
     watch: {
-        mode: function(value) {
-            console.log(`chage mode to ${value}`);
+        mode: function() {
             this.loadQuestion();
         },
     },
@@ -56,7 +54,6 @@ export default {
             this.answer_status.wrong = false;    
         },
         keyPressed(event) {
-            console.log('keyPressed');
             if(this.answer_status.correct) {
                 if(event.key == 'Enter'){
                     this.loadQuestion();
@@ -87,10 +84,7 @@ export default {
                     });
                     this.loadQuestion();
                 }, 500);
-            } else {
-                console.log(this.answer_expected);
-                console.log(this.answer_entered);
-            }
+            } 
         },
 
         getRandomInt(max) {
