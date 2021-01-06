@@ -84,9 +84,13 @@ export default {
         while( this.prizes.indexOf(this.characters[index].path) != -1) {
           index = Math.floor(Math.random() * Math.floor(this.characters.length));
         }
+        this.bgimg = this.characters[index].path;
+        this.message = this.characters[index].name;
+      } else {
+        this.bgimg = this.characters[index].path;
+        this.message = 'congratulations! You have completed.';
       } 
-      this.bgimg = this.characters[index].path;
-      this.message = this.characters[index].name;
+      
     },
 
     changeMode: function(mode) {
