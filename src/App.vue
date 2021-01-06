@@ -6,8 +6,7 @@
       <button v-on:click="changeMode('addition')">Addition</button>
       <button v-on:click="changeMode('subtraction')">Subtraction</button>
       <button v-on:click="changeMode('mix')">Mix</button>
-  </div>
-
+    </div>
     <hr>
     <h2> {{ number }}</h2>
     <div v-html="listOfPrizes">   
@@ -80,10 +79,12 @@ export default {
     },
 
     changeImg: function() {
-      var index = Math.floor(Math.random() * Math.floor(118));
-      while( this.prizes.indexOf(this.characters[index].path) != -1) {
-        index = Math.floor(Math.random() * Math.floor(118));
-      }
+      var index = Math.floor(Math.random() * Math.floor(this.characters.length));
+      if(this.prizes.length < this.characters.length) {
+        while( this.prizes.indexOf(this.characters[index].path) != -1) {
+          index = Math.floor(Math.random() * Math.floor(this.characters.length));
+        }
+      } 
       this.bgimg = this.characters[index].path;
       this.message = this.characters[index].name;
     },
